@@ -3,15 +3,17 @@ public class Scrabble {
     String word;
 
     public Scrabble(String word) {
-        this.word = word.toUpperCase();
+        if (word != null) {
+        this.word = word.toUpperCase();}
     }
 
     public int score() {
         int score = 0; // initialise score
+        if (word != null) {
         char[] wordArray = this.word.toCharArray(); // change word into array of each character
         for (Character letter:wordArray) {
             score += getValue(letter);
-        }
+        }}
         return score; // return the total score of the word
     }
 
