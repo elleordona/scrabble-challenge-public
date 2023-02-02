@@ -1,0 +1,117 @@
+Index: src/test/java/ScrabbleTest.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import jdk.nashorn.internal.ir.annotations.Ignore;\r\nimport org.junit.jupiter.api.Test;\r\n\r\nimport static org.junit.jupiter.api.Assertions.assertEquals;\r\n\r\npublic class ScrabbleTest {\r\n\r\n    @Test\r\n    public void returnsZeroForEmptyWords() {\r\n        Scrabble scrabble = new Scrabble(\"\");\r\n        assertEquals(scrabble.score(), 0);\r\n    }\r\n\r\n    @Test\r\n    @Ignore\r\n    public void returnsZeroForNull() {\r\n        Scrabble scrabble = new Scrabble(null);\r\n        assertEquals(scrabble.score(), 0);\r\n    }\r\n\r\n    @Test\r\n    @Ignore\r\n    public void returnsScoreForShortWord1() {\r\n        Scrabble scrabble = new Scrabble(\"a\");\r\n        assertEquals(scrabble.score(), 1);\r\n    }\r\n\r\n    @Test\r\n    @Ignore    \r\n    public void returnsScoreForShortWord2() {\r\n        Scrabble scrabble = new Scrabble(\"f\");\r\n        assertEquals(scrabble.score(), 4);\r\n    }\r\n\r\n    @Test\r\n    @Ignore    \r\n    public void returnsScoreForSimpleWord() {\r\n        Scrabble scrabble = new Scrabble(\"street\");\r\n        assertEquals(scrabble.score(), 6);\r\n    }\r\n\r\n    @Test\r\n    @Ignore    \r\n    public void returnsScoreForComplicatedWord() {\r\n        Scrabble scrabble = new Scrabble(\"quirky\");\r\n        assertEquals(scrabble.score(), 22);\r\n    }\r\n\r\n    @Test\r\n    @Ignore    \r\n    public void returnsScoreForCaseInsensitiveWord() {\r\n        Scrabble scrabble = new Scrabble(\"OXYPHENBUTAZONE\");\r\n        assertEquals(scrabble.score(), 41);\r\n    }\r\n\r\n    @Test\r\n    @Ignore    \r\n    public void returnsScoreForDoubleWord() {\r\n        // Scrabble (String, Character[], Character[], boolean (doubleWord), boolean(tripleWord);\r\n        Scrabble scrabble = new Scrabble(\"quirky\", new Character[]{}, new Character[]{}, true, false);\r\n        assertEquals(scrabble.score(), 44);\r\n    }\r\n\r\n    @Test\r\n    @Ignore    \r\n    public void returnsScoreForTripleWord() {\r\n        Scrabble scrabble = new Scrabble(\"quirky\", new Character[]{}, new Character[]{}, false, true);\r\n        assertEquals(scrabble.score(), 66);\r\n    }\r\n    // Scrabble (String, Character[] (double letters), Character[], boolean, boolean;\r\n    @Test\r\n    @Ignore    \r\n    public void returnsScoreForDoubleLetterWord() {\r\n        Scrabble scrabble = new Scrabble(\"a\", new Character[]{'A'}, new Character[]{}, false, false);\r\n        assertEquals(scrabble.score(), 2);\r\n    }\r\n\r\n    @Test\r\n    @Ignore\r\n    public void returnsScoreForDoubleLetterOnlyOnce() {\r\n        Scrabble scrabble = new Scrabble(\"aa\", new Character[]{'A'}, new Character[]{}, false, false);\r\n        assertEquals(scrabble.score(), 3);\r\n    }\r\n\r\n    @Test\r\n    @Ignore    \r\n    public void returnsScoreForTripleLetterWord() {\r\n        // Scrabble (String, Character[] , Character[] (triple letters), boolean, boolean;\r\n        Scrabble scrabble = new Scrabble(\"a\", new Character[]{}, new Character[]{'A'},false, false);\r\n        assertEquals(scrabble.score(), 3);\r\n    }\r\n\r\n    @Test\r\n    @Ignore    \r\n    public void returnsScoreForTripleLetterOnlyOnce() {\r\n        Scrabble scrabble = new Scrabble(\"aa\", new Character[]{}, new Character[]{'A'},false, false);\r\n        assertEquals(scrabble.score(), 4);\r\n    }\r\n\r\n    @Test\r\n    @Ignore    \r\n    public void returnsScoreForDoubleAndTripleLetter() {\r\n        Scrabble scrabble = new Scrabble(\"aa\", new Character[]{'A'}, new Character[]{'A'},false, false);\r\n        assertEquals(scrabble.score(), 5);\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/ScrabbleTest.java b/src/test/java/ScrabbleTest.java
+--- a/src/test/java/ScrabbleTest.java	(revision 7ac928ae50eafe40c547531d427c5feab4e3c5f5)
++++ b/src/test/java/ScrabbleTest.java	(date 1675073705731)
+@@ -53,55 +53,56 @@
+         assertEquals(scrabble.score(), 41);
+     }
+ 
+-    @Test
+-    @Ignore    
+-    public void returnsScoreForDoubleWord() {
+-        // Scrabble (String, Character[], Character[], boolean (doubleWord), boolean(tripleWord);
+-        Scrabble scrabble = new Scrabble("quirky", new Character[]{}, new Character[]{}, true, false);
+-        assertEquals(scrabble.score(), 44);
+-    }
+-
+-    @Test
+-    @Ignore    
+-    public void returnsScoreForTripleWord() {
+-        Scrabble scrabble = new Scrabble("quirky", new Character[]{}, new Character[]{}, false, true);
+-        assertEquals(scrabble.score(), 66);
+-    }
+-    // Scrabble (String, Character[] (double letters), Character[], boolean, boolean;
+-    @Test
+-    @Ignore    
+-    public void returnsScoreForDoubleLetterWord() {
+-        Scrabble scrabble = new Scrabble("a", new Character[]{'A'}, new Character[]{}, false, false);
+-        assertEquals(scrabble.score(), 2);
+-    }
+-
+-    @Test
+-    @Ignore
+-    public void returnsScoreForDoubleLetterOnlyOnce() {
+-        Scrabble scrabble = new Scrabble("aa", new Character[]{'A'}, new Character[]{}, false, false);
+-        assertEquals(scrabble.score(), 3);
+-    }
+-
+-    @Test
+-    @Ignore    
+-    public void returnsScoreForTripleLetterWord() {
+-        // Scrabble (String, Character[] , Character[] (triple letters), boolean, boolean;
+-        Scrabble scrabble = new Scrabble("a", new Character[]{}, new Character[]{'A'},false, false);
+-        assertEquals(scrabble.score(), 3);
+-    }
+-
+-    @Test
+-    @Ignore    
+-    public void returnsScoreForTripleLetterOnlyOnce() {
+-        Scrabble scrabble = new Scrabble("aa", new Character[]{}, new Character[]{'A'},false, false);
+-        assertEquals(scrabble.score(), 4);
+-    }
+-
+-    @Test
+-    @Ignore    
+-    public void returnsScoreForDoubleAndTripleLetter() {
+-        Scrabble scrabble = new Scrabble("aa", new Character[]{'A'}, new Character[]{'A'},false, false);
+-        assertEquals(scrabble.score(), 5);
+-    }
++        //! Extended Criteria
++//    @Test
++//    @Ignore
++//    public void returnsScoreForDoubleWord() {
++//        // Scrabble (String, Character[], Character[], boolean (doubleWord), boolean(tripleWord);
++//        Scrabble scrabble = new Scrabble("quirky", new Character[]{}, new Character[]{}, true, false);
++//        assertEquals(scrabble.score(), 44);
++//    }
++//
++//    @Test
++//    @Ignore
++//    public void returnsScoreForTripleWord() {
++//        Scrabble scrabble = new Scrabble("quirky", new Character[]{}, new Character[]{}, false, true);
++//        assertEquals(scrabble.score(), 66);
++//    }
++//    // Scrabble (String, Character[] (double letters), Character[], boolean, boolean;
++//    @Test
++//    @Ignore
++//    public void returnsScoreForDoubleLetterWord() {
++//        Scrabble scrabble = new Scrabble("a", new Character[]{'A'}, new Character[]{}, false, false);
++//        assertEquals(scrabble.score(), 2);
++//    }
++//
++//    @Test
++//    @Ignore
++//    public void returnsScoreForDoubleLetterOnlyOnce() {
++//        Scrabble scrabble = new Scrabble("aa", new Character[]{'A'}, new Character[]{}, false, false);
++//        assertEquals(scrabble.score(), 3);
++//    }
++//
++//    @Test
++//    @Ignore
++//    public void returnsScoreForTripleLetterWord() {
++//        // Scrabble (String, Character[] , Character[] (triple letters), boolean, boolean;
++//        Scrabble scrabble = new Scrabble("a", new Character[]{}, new Character[]{'A'},false, false);
++//        assertEquals(scrabble.score(), 3);
++//    }
++//
++//    @Test
++//    @Ignore
++//    public void returnsScoreForTripleLetterOnlyOnce() {
++//        Scrabble scrabble = new Scrabble("aa", new Character[]{}, new Character[]{'A'},false, false);
++//        assertEquals(scrabble.score(), 4);
++//    }
++//
++//    @Test
++//    @Ignore
++//    public void returnsScoreForDoubleAndTripleLetter() {
++//        Scrabble scrabble = new Scrabble("aa", new Character[]{'A'}, new Character[]{'A'},false, false);
++//        assertEquals(scrabble.score(), 5);
++//    }
+ 
+ }
