@@ -1,4 +1,4 @@
-
+import jdk.nashorn.internal.ir.annotations.Ignore;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -55,7 +55,7 @@ public class ScrabbleTest {
     }
 
 //    @Test
-//    @Disabled
+//    @Ignore
 //    public void returnsScoreForDoubleWord() {
 //        // Scrabble (String, Character[], Character[], boolean (doubleWord), boolean(tripleWord);
 //        Scrabble scrabble = new Scrabble("quirky", new Character[]{}, new Character[]{}, true, false);
@@ -63,28 +63,28 @@ public class ScrabbleTest {
 //    }
 //
 //    @Test
-//    @Disabled
+//    @Ignore
 //    public void returnsScoreForTripleWord() {
 //        Scrabble scrabble = new Scrabble("quirky", new Character[]{}, new Character[]{}, false, true);
 //        assertEquals(scrabble.score(), 66);
 //    }
-//    // Scrabble (String, Character[] (double letters), Character[], boolean, boolean);
+//    // Scrabble (String, Character[] (double letters), Character[], boolean, boolean;
 //    @Test
-//    @Disabled
+//    @Ignore
 //    public void returnsScoreForDoubleLetterWord() {
 //        Scrabble scrabble = new Scrabble("a", new Character[]{'A'}, new Character[]{}, false, false);
 //        assertEquals(scrabble.score(), 2);
 //    }
 //
 //    @Test
-//    @Disabled
+//    @Ignore
 //    public void returnsScoreForDoubleLetterOnlyOnce() {
 //        Scrabble scrabble = new Scrabble("aa", new Character[]{'A'}, new Character[]{}, false, false);
 //        assertEquals(scrabble.score(), 3);
 //    }
 //
 //    @Test
-//    @Disabled
+//    @Ignore
 //    public void returnsScoreForTripleLetterWord() {
 //        // Scrabble (String, Character[] , Character[] (triple letters), boolean, boolean;
 //        Scrabble scrabble = new Scrabble("a", new Character[]{}, new Character[]{'A'},false, false);
@@ -92,14 +92,14 @@ public class ScrabbleTest {
 //    }
 //
 //    @Test
-//    @Disabled
+//    @Ignore
 //    public void returnsScoreForTripleLetterOnlyOnce() {
 //        Scrabble scrabble = new Scrabble("aa", new Character[]{}, new Character[]{'A'},false, false);
 //        assertEquals(scrabble.score(), 4);
 //    }
 //
 //    @Test
-//    @Disabled
+//    @Ignore
 //    public void returnsScoreForDoubleAndTripleLetter() {
 //        Scrabble scrabble = new Scrabble("aa", new Character[]{'A'}, new Character[]{'A'},false, false);
 //        assertEquals(scrabble.score(), 5);
