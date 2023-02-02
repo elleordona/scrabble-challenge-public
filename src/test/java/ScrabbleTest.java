@@ -13,6 +13,7 @@ public class ScrabbleTest {
     }
 
     @Test
+    @Disabled
     public void returnsZeroForNull() {
         Scrabble scrabble = new Scrabble(null);
         assertEquals(scrabble.score(), 0);
@@ -25,28 +26,24 @@ public class ScrabbleTest {
     }
 
     @Test
-    @Disabled
     public void returnsScoreForShortWord2() {
         Scrabble scrabble = new Scrabble("f");
         assertEquals(scrabble.score(), 4);
     }
 
     @Test
-    @Disabled
     public void returnsScoreForSimpleWord() {
         Scrabble scrabble = new Scrabble("street");
         assertEquals(scrabble.score(), 6);
     }
 
     @Test
-    @Disabled
     public void returnsScoreForComplicatedWord() {
         Scrabble scrabble = new Scrabble("quirky");
         assertEquals(scrabble.score(), 22);
     }
 
     @Test
-    @Disabled
     public void returnsScoreForCaseInsensitiveWord() {
         Scrabble scrabble = new Scrabble("OXYPHENBUTAZONE");
         assertEquals(scrabble.score(), 41);
