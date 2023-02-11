@@ -27,20 +27,20 @@ public class Scrabble {
         int score = 0; // initialise score
         if (word != null) {
         char[] wordArray = this.word.toCharArray(); // change word into array of each character
-        for (Character letter:wordArray) {
-            score += getValue(letter);
+        for (Character letter:wordArray) { // loops through each character in the word
+            score += getValue(letter); // add value of character to the score
         }}
-        if (this.doubleWord) {
+        if (this.doubleWord) { // if the user asks for a double word
             score = score * 2;
         }
-        if (this.tripleWord) {
+        if (this.tripleWord) { // if the user asks for a triple word
             score = score * 3;
         }
         return score; // return the total score of the word
     }
 
     int getValue(char letter) {
-        switch (letter) {
+        switch (letter) { // returns value for each letter
             case 'G': case 'D': return 2;
             case 'B': case 'C': case 'M': case 'P': return 3;
             case 'F': case 'H': case 'V': case 'W': case 'Y': return 4;
