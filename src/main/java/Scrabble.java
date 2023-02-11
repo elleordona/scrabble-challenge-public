@@ -1,10 +1,26 @@
 public class Scrabble {
     // properties
     String word;
+    Character[] doubleLetters;
+    Character[] tripleLetters;
+    boolean doubleWord;
+    boolean tripleWord;
 
+    // standard constructor
     public Scrabble(String word) {
         if (word != null) {
         this.word = word.toUpperCase();}
+    }
+
+    // constructor for double/triple word or letters
+    public Scrabble(String word, Character[] doubleLetters, Character[] tripleLetters, boolean doubleWord, boolean tripleWord) {
+        if (word != null) {
+            this.word = word.toUpperCase();
+        }
+        this.doubleLetters = doubleLetters;
+        this.tripleLetters = tripleLetters;
+        this.doubleWord = doubleWord;
+        this.tripleWord = tripleWord;
     }
 
     public int score() {
@@ -14,6 +30,12 @@ public class Scrabble {
         for (Character letter:wordArray) {
             score += getValue(letter);
         }}
+        if (this.doubleWord) {
+            score = score * 2;
+        }
+        if (this.tripleWord) {
+            score = score * 3;
+        }
         return score; // return the total score of the word
     }
 
